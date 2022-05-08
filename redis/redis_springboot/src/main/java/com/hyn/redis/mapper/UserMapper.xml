@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyn.redis.dao.UserDao">
+
+    <!--开启mybatis的二级缓存-->
+    <cache type="com.hyn.redis.cache.RedisCache"></cache>
+    <select id="findAll" resultType="User">
+        select * from user
+    </select>
+
+    <select id="findById" parameterType="String" resultType="User">
+        select * from user where id = #{id}
+    </select>
+
+    <delete id="delete" parameterType="String">
+        delete from user where id = #{id}
+    </delete>
+
+    <insert id="save" parameterType="User">
+        insert into user values (#{id},#{name},#{age},#{bir})
+    </insert>
+
+    <update id="update" parameterType="User">
+        update user set name = #{name},age = #{age},bir = #{bir}
+        where id = #{id}
+    </update>
+
+    <resultMap id="userAndEmp" type="com.hyn.redis.entity.vo.UserVo" >
+        <id column="id" property="uid"></id>
+        <result column="name" property="uname"></result>
+        <association property="emp" javaType="com.hyn.redis.entity.Emp">
+            <id column="id" property="id"></id>
+            <result column="name" property="name"></result>
+        </association>
+    </resultMap>
+
+    <select id="getUserAndEmp" resultMap="userAndEmp">
+        select u.*,e.*
+        from user u left join emp e on u.id = e.id
+    </select>
+
+
+
+</mapper>

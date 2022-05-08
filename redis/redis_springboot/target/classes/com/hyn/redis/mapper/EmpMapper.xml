@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyn.redis.dao.EmpDao">
+    <!--开启redis二级缓存-->
+    <!--<cache type="com.hyn.redis.cache.RedisCache"></cache>-->
+    <!--关联关系缓存处理-->
+    <cache-ref namespace="com.hyn.redis.dao.UserDao"/>
+    <!--    findAll-->
+    <select id="findAll" resultType="Emp">
+        select *
+        from emp
+    </select>
+
+    <select id="findUserEmp" parameterType="String" resultMap="userEmp">
+        select u.*,e.*
+        from user u left join emp e on u.id = e.id where u.id = #{id}
+    </select>
+    <resultMap id="userEmp" type="com.hyn.redis.entity.vo.UserEmp">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <collection property="emps" ofType="com.hyn.redis.entity.Emp">
+            <id property="id" column="id"></id>
+            <result property="name" column="name"></result>
+        </collection>
+    </resultMap>
+</mapper>

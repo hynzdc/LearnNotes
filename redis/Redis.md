@@ -93,7 +93,7 @@ Redis 开源  遵循BSD  基于内存数据存储 被用于作为 数据库 缓�
 # 2.下载完整源码包
 - redis-4.0.10.tar.gz
 ```
-![image](images/b64c6490-44eb-40b2-87bc-8941a73288e0.png)
+![image-20220508220524273](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082205385.png)
 
 ```markdown
 # 3.将下载redis资料包上传到Linux中

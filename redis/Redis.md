@@ -87,7 +87,7 @@ Redis 开源  遵循BSD  基于内存数据存储 被用于作为 数据库 缓�
 # 1.下载redis源码包
 - https://redis.io/
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082154243.png)
+![image-20220508220706191](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082207287.png)
 
 ```markdown
 # 2.下载完整源码包

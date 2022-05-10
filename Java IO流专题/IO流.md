@@ -556,5 +556,142 @@ public class BuferedCopy {
 }
 ```
 
-### BufferedInputStream
+### BufferedInputStream、BufferedOutputstream
 
+**复制视频文件**
+
+```java
+public class BufferedCopy {
+    public static void main(String[] args) throws Exception {
+        String srcPath = "/Users/austin/Documents/IdeaProject/io-stream/lalal.mp4";
+        String tarPath = "/Users/austin/Documents/IdeaProject/io-stream/test/dudu.mp4";
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(srcPath));
+        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(tarPath));
+        byte[] bytes = new byte[1024];
+        int readLen = 0;
+        while ((readLen = bufferedInputStream.read(bytes)) != -1) {
+            bufferedOutputStream.write(bytes, 0, readLen);
+        }
+        System.out.println("复制完成");
+        if (bufferedInputStream != null) {
+            bufferedInputStream.close();
+        }
+        if (bufferedOutputStream != null) {
+            bufferedOutputStream.close();
+        }
+    }
+}
+```
+
+## 对象流
+
+### 需求
+
+- 将int num = 100 这个int 数据保存到文件中，注意不是数字100，而是int 100 ，并且能够从文件中直接恢复int 100
+- 将Dog dog = new Dog{"小黄",3} 保存到文件中，并且能够恢复
+- 上面的要求，就是要将基本的数据类型或者对象进行序列化或者反序列化
+
+### 序列化和反序列化
+
+1. 序列化就是在保存数据时，保存数据的值和数据的类型
+2. 反序列化就是在恢复数据时，恢复数据的值和数据的类型
+3. 需要让某个对象支持序列化机制，则必须让其类是可序列化的，为了让类可序列化，该类必须实现如下两个接口之一
+   - Serializable. 这是一个标记接口，没有方法
+   - Extrnalizable  需要实现方法
+
+![image-20220510090515659](https://gitee.com/Aaustin/harehouse/raw/master/img/202205100905822.png)
+
+### ObjectInputStream
+
+**处理流**
+
+![image-20220510091140826](https://gitee.com/Aaustin/harehouse/raw/master/img/202205100911896.png)
+
+### ObjectOutputStream
+
+![image-20220510091311207](https://gitee.com/Aaustin/harehouse/raw/master/img/202205100913283.png)
+
+### 应用案例
+
+1. 使用ObjectOutputStream序列化基本数据类型一个Dog对象(name,age)并保存到data.dat文件中
+
+```java
+public class ObjectOutputStream_ {
+    public static void main(String[] args) throws Exception {
+        String filePath = "/Users/austin/Documents/IdeaProject/io-stream/test/data.dat";
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath));
+        //序列化数据
+        oos.write(100); //int 会自动装箱 成Integer 而Integer实现了Serializable
+        oos.writeBoolean(true); //装箱成Boolean类 也实现了Serializable
+        oos.writeChar('a'); //char -> Character 实现了Serializable
+        oos.writeDouble(20.34); //double -> Double 实现了Serializable
+        oos.writeUTF("郝亚宁"); //String 也实现了序列化接口
+        oos.writeObject(new Dog("旺财",22));
+        oos.close();
+        System.out.println("数据保存完毕");
+    }
+}
+//实现序列化
+class Dog implements Serializable {
+    private String name;
+    private int age;
+  
+    public Dog(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+```
+
+![image-20220510093159736](https://gitee.com/Aaustin/harehouse/raw/master/img/202205100931791.png)
+
+2. 使用ObjectInputStream读取data.dat文件，恢复数据
+
+  ```java
+  /**
+   * 反序列化
+   */
+  public class ObjectInputStream_ {
+      public static void main(String[] args) throws Exception  {
+          String filePath = "/Users/austin/Documents/IdeaProject/io-stream/test/data.dat";
+          ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath));
+          //读取的顺序一定要和存放（序列化）的顺序的一致
+          System.out.println(ois.readInt());
+          System.out.println(ois.readBoolean());
+          System.out.println(ois.readChar());
+          System.out.println(ois.readDouble());
+          System.out.println(ois.readUTF());
+          Object dog = ois.readObject();
+          System.out.println("dog类型"+dog.getClass());
+          //特别重要的细节
+          //如果我们需要用到Dog的方法，需要向下转型
+          //需要我们要将Dog类定义，
+          Dog dog1 = (Dog)dog;
+          System.out.println(dog1.getName());
+          System.out.println(dog);//底层object ->dog
+          ois.close();
+      }
+  }
+  ```
+
+### 注意事项和细节说明
+
+- 读写要求一致
+
+- 要求实现序列化和反序列化对象实现Serializable
+
+- 序列化建议添加SerialVersionUid,为了提高版本的兼容性
+
+  ```java
+  //serialVersionUID序列化版本，提高兼容性
+      private static final long serialVersionUID = 1L;
+  ```
+
+- 序列化对象时，默认将里面所有的属性进行序列化，但除了static和transient修饰的成员
+
+  - 在持久化对象时，对于⼀些特殊的数据成员（如⽤户的密码，银⾏卡号等），我们不想⽤序列化机制来保存它。为了在⼀个特定对象的⼀个成员变量上关闭序列化，可以在这个成员变量前加上关键字transient。
+
+- 序列化对象时，要求里面的属性类型也要实现序列化接口
+
+- 序列化具备可继承性，也就是如果某类已经实现了序列化，则他的所有子类默认实现了序列化

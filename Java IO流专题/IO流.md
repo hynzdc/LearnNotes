@@ -695,3 +695,200 @@ class Dog implements Serializable {
 - 序列化对象时，要求里面的属性类型也要实现序列化接口
 
 - 序列化具备可继承性，也就是如果某类已经实现了序列化，则他的所有子类默认实现了序列化
+
+---
+
+## 转换流
+
+下面说一个例子，在我们用BufferedReader读取文本文件时如果文本文件是utf-8那么可以读取正常，但是如果以其他格式编码的文件就会出现如下情况
+
+![image-20220510105828963](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101058091.png)
+
+![image-20220510105836840](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101058914.png)
+
+所以我们可以用字节流读取文件，再指定编码格式，再转换成字符流
+
+![image-20220510110020680](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101100751.png)
+
+### InputStreamReader
+
+![image-20220510110421913](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101104983.png)
+
+### OutputStreamWriter
+
+![image-20220510111220695](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101112747.png)
+
+- InputStreamReader：Reader 的子类，可以将InputStream（字节流）包装成 Reader字符流
+- OutputStreamWriter: Writer 的子类 ，可以讲outputStream 包装成 Writer 字符流
+
+- 处理文本数据，如果使用字符流效率更高，并且可以有效的解决中文问题，所以建议将字节流转换成字符流
+- 可以在使用时指定编码格式
+
+### FileInputStream -> InputStreamReader
+
+将字节流转换成字符流读取到内存里
+
+```java
+/**
+ * 将字节流转换成字符流
+ * FileInputStream -> InputStreamReader
+ */
+public class InputStreamReader_ {
+    public static void main(String[] args) throws Exception {
+        String filePath = "/Users/austin/Documents/IdeaProject/io-stream/test/love.txt";
+        //1.把FileInputStream转为inputStreamReader
+        //2.指定编码gbk
+        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(filePath),"UTF-16");
+        //3.把inputStreamReader传入BufferedReader
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        //4.读取
+        String s = bufferedReader.readLine();
+        System.out.println(s);
+        //关闭外层流
+        inputStreamReader.close();
+    }
+}
+```
+
+### FileOutputStream-> OutputStramWriter
+
+将字节流转换成字符流输出到文件中去
+
+```java
+/**
+ * FileOutputStream -> OutputStreamWriter
+ */
+public class OutputStreamWriter_ {
+    public static void main(String[] args) throws Exception {
+        String filePath = "/Users/austin/Documents/IdeaProject/io-stream/test/hyn.txt";
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filePath),"utf-8"));
+        bufferedWriter.write("郝亚宁真的帅");
+        bufferedWriter.close();
+    }
+}
+```
+
+---
+
+## 打印流
+
+**打印流： PrintStream 和PrintWriter**
+
+只有输出流没有输入流
+
+### PrintStream
+
+![image-20220510154744024](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101547158.png)
+
+```java
+//演示字节打印流
+public class PrintStream_ {
+    public static void main(String[] args) throws IOException {
+        PrintStream out = System.out;
+        //默认情况下PrintStream打印的位置是显示器
+        out.print("我爱你");
+        //因为print底层是write所以我们可以直接用write答应
+        out.write("我真帅".getBytes());
+        out.close();
+        //我们可以修改打印流的输出位置
+        //修改到
+        System.setOut(new PrintStream("/Users/austin/Documents/IdeaProject/io-stream/test/hyn.txt"));
+        System.out.println("我是靓仔");
+    }
+}
+```
+
+
+
+### PrintWriter
+
+![image-20220510154920489](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101549585.png)
+
+```java
+public class PrintWriter_ {
+    public static void main(String[] args) throws IOException {
+        //PrintWriter printWriter = new PrintWriter(System.out);
+        PrintWriter printWriter = new PrintWriter(new FileWriter("/Users/austin/Documents/IdeaProject/io-stream/test/hyn.txt"));
+        printWriter.println("北京你好");
+        printWriter.close();
+    }
+}
+```
+
+## Properties类
+
+Properties父类是HashTable
+
+Properties是一个专门读取配置文件的集合类
+
+配置文件格式
+
+键=值
+
+### Properties常用的方法
+
+- load() 加载配置文件的键值对到Properties对象
+- list() 将数据显示到指定设备
+- getProperty(key) 根据键获取值
+- setProperty(key,value) 设置键值到Properties对象
+- store: 将Properties中的键值对存储到配置文件去，如果有中文会uicode编码
+
+### 看一个需求
+
+![image-20220510161256348](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101612418.png)
+
+**用传统的方法解决**
+
+```java
+public class Properties_ {
+    public static void main(String[] args) throws Exception {
+        //用传统的方法读取mysql.properties
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("/Users/austin/Documents/IdeaProject/io-stream/src/mysql.properties"));
+        String line = "";
+        while ((line = bufferedReader.readLine())!=null){
+            String[] split = line.split("=");
+            System.out.println(split[0]+"值是"+split[1]);
+        }
+        //这种方式也可以但是如果我要只获取到ip就比较麻烦了
+        bufferedReader.close();
+    }
+}
+```
+
+**用Properties类来解决**
+
+```java
+public class Properties02_ {
+    public static void main(String[] args) throws Exception {
+        //使用Properties这个类来读取mysql.properties
+        //1,创建对象
+        Properties properties = new Properties();
+        //2,加载指定配置文件
+        properties.load(new FileReader("/Users/austin/Documents/IdeaProject/io-stream/src/mysql.properties"));
+        //3,把k-v显示控制台
+        properties.list(System.out);
+        //4,根据key获取对应的值
+        System.out.println(properties.get("user"));
+        System.out.println(properties.get("pwd"));
+    }
+}
+```
+
+### 应用案例
+
+![image-20220510164014731](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101640818.png)
+
+```java
+public class Properties03_ {
+    public static void main(String[] args) throws IOException {
+        Properties properties = new Properties();
+
+        properties.setProperty("name","hyn");
+        properties.setProperty("age","23");
+        properties.setProperty("hha","郝亚宁");
+        properties.store(new FileWriter("/Users/austin/Documents/IdeaProject/io-stream/src/mysql2.properties"),"你是真的帅");
+        System.out.println("保存成功");
+    }
+}
+```
+

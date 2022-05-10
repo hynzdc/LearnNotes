@@ -817,7 +817,7 @@ public class PrintWriter_ {
 
 ## Properties类
 
-Properties父类是HashTable
+Properties父类是
 
 Properties是一个专门读取配置文件的集合类
 
@@ -876,7 +876,9 @@ public class Properties02_ {
 
 ### 应用案例
 
-![image-20220510164014731](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101640818.png)
+1. 使用Properties完成对配置文件的读取
+2. 使用Properties完成键值对的添加
+3. 使用Properties修改键值对，并保存到配置文件中
 
 ```java
 public class Properties03_ {

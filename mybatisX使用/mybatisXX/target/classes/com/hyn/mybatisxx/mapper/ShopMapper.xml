@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyn.mybatisxx.mapper.ShopMapper">
+
+    <resultMap id="BaseResultMap" type="com.hyn.mybatisxx.domain.Shop">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="userId" column="user_id" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,name
+    </sql>
+    <select id="selectAllByName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from shop
+        where
+        name = #{name,jdbcType=VARCHAR}
+    </select>
+    <update id="updateName">
+        update shop
+        set name = #{name,jdbcType=VARCHAR}
+    </update>
+    <insert id="insertAll">
+        insert into shop
+            (id, user_id, name)
+        values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR})
+
+    </insert>
+</mapper>

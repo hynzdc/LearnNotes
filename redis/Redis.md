@@ -63,7 +63,7 @@
 * 不需要高度的数据一致性
 
 ## 5\. 什么是Redis
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082146373.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082146373.png)
 
 > Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker.
 
@@ -87,25 +87,25 @@ Redis 开源  遵循BSD  基于内存数据存储 被用于作为 数据库 缓�
 # 1.下载redis源码包
 - https://redis.io/
 ```
-![image-20220508220706191](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082207287.png)
+![image-20220508220706191](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082207287.png)
 
 ```markdown
 # 2.下载完整源码包
 - redis-4.0.10.tar.gz
 ```
-![image-20220508220524273](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082205385.png)
+![image-20220508220524273](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082205385.png)
 
 ```markdown
 # 3.将下载redis资料包上传到Linux中
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082154133.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082154133.png)
 
 ```markdown
 # 4.解压缩文件
 [root@localhost ~]# tar -zxvf redis-4.0.10.tar.gz
 [root@localhost ~]# ll
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082154449.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082154449.png)
 
 ```markdown
 # 5.安装gcc  
@@ -120,7 +120,7 @@ Redis 开源  遵循BSD  基于内存数据存储 被用于作为 数据库 缓�
 # 8.进入/usr/redis/bin目录启动redis服务 
 - ./redis-server
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082154181.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082154181.png)
 
 ```markdown
 # 9.Redis服务端口默认是 6379
@@ -130,7 +130,7 @@ Redis 开源  遵循BSD  基于内存数据存储 被用于作为 数据库 缓�
 # 10.进入bin目录执行客户端连接操作
 - ./redis-cli –p 6379
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082154208.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082154208.png)
 
 ```markdown
 # 11.连接成功出现上面界面连接成功
@@ -161,7 +161,7 @@ cd /usr/redis
 
 默认库的个数：16个库 ，库的编号 0-15 默认使用0号库
 
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082154812.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082154812.png)
 
 如何切换库：select dbid
 
@@ -274,7 +274,7 @@ cd /usr/redis
 ```
 ### 8.3 String类型
 #### 1\. 内存存储模型
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082155740.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082155740.png)
 
 #### 2\. 常用操作命令
 |命令|说明|
@@ -301,7 +301,7 @@ cd /usr/redis
 list 列表 相当于java中list 集合  特点  元素有序  且 可以重复
 
 #### 1.内存存储模型
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082155765.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082155765.png)
 
 #### 2.常用操作指令
 |命令|说明|
@@ -324,7 +324,7 @@ list 列表 相当于java中list 集合  特点  元素有序  且 可以重复
 特点: Set类型 Set集合 元素无序  不可以重复
 
 #### 1.内存存储模型
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082155130.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082155130.png)
 
 #### 2.常用命令
 |命令|说明|
@@ -347,7 +347,7 @@ list 列表 相当于java中list 集合  特点  元素有序  且 可以重复
 ZSET 官方  可排序SET  sortSet   
 
 #### 1.内存模型
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082155013.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082155013.png)
 
 #### 2.常用命令
 |命令|说明|
@@ -366,7 +366,7 @@ ZSET 官方  可排序SET  sortSet
 特点: value 是一个map结构 存在key value  key 无序的  
 
 #### 1.内存模型
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082155673.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082155673.png)
 
 #### 2.常用命令
 |命令|说明|
@@ -397,7 +397,7 @@ Redis官方提供了两种不同的持久化方法来将数据存储到硬盘里
 #### 1\. 特点
 这种方式可以将某一时刻的所有数据都写入硬盘中,当然这也是**redis的默认开启持久化方式**,保存的文件是以.rdb形式结尾的文件因此这种方式也称之为RDB方式。
 
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082155600.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082155600.png)
 
 #### 2.快照生成方式
 * 客户端方式: BGSAVE 和 SAVE指令
@@ -409,13 +409,13 @@ Redis官方提供了两种不同的持久化方法来将数据存储到硬盘里
 
     `名词解释: fork当一个进程创建子进程的时候,底层的操作系统会创建该进程的一个副本,在类unix系统中创建子进程的操作会进行优化:在刚开始的时候,父子进程共享相同内存,直到父进程或子进程对内存进行了写之后,对被写入的内存的共享才会结束服务`
 ```
-![image-20220508215604463](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082156518.png)
+![image-20220508215604463](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082156518.png)
 
 ```markdown
 # 2.客户端方式之SAVE
 - b.客户端还可以使用SAVE命令来创建一个快照,接收到SAVE命令的redis服务器在快照创建完毕之前将不再响应任何其他的命令
 ```
-![image-20220508215627607](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082156652.png)
+![image-20220508215627607](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082156652.png)
 
 * **注意: SAVE命令并不常用,使用SAVE命令在快照创建完毕之前,redis处于阻塞状态,无法对外服务**
 
@@ -423,7 +423,7 @@ Redis官方提供了两种不同的持久化方法来将数据存储到硬盘里
 # 3.服务器配置方式之满足配置自动触发
 - 如果用户在redis.conf中设置了save配置选项,redis会在save选项条件满足之后自动触发一次BGSAVE命令,如果设置多个save配置选项,当任意一个save配置选项条件满足,redis也会触发一次BGSAVE命令
 ```
-![image-20220508215653990](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082156047.png)
+![image-20220508215653990](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082156047.png)
 
 ```markdown
 # 4.服务器接收客户端shutdown指令
@@ -437,7 +437,7 @@ Redis官方提供了两种不同的持久化方法来将数据存储到硬盘里
 # 2.修改生成位置
 - dir ./
 ```
-![image-20220508215711475](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082157523.png)
+![image-20220508215711475](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082157523.png)
 
 弊端：当我刚做完写的操作，突然断电了，可能没有来的及做快照
 
@@ -446,7 +446,7 @@ Redis官方提供了两种不同的持久化方法来将数据存储到硬盘里
 #### 1.特点
 这种方式可以将所有客户端执行的写命令记录到日志文件中,AOF持久化会将被执行的写命令写到AOF的文件末尾,以此来记录数据发生的变化,因此只要redis从头到尾执行一次AOF文件所包含的所有写命令,就可以恢复AOF文件的记录的数据集.
 
-![image-20220508215729991](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082157048.png)
+![image-20220508215729991](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082157048.png)
 
 #### 2.开启AOF持久化
 在redis的默认配置中AOF持久化机制是没有开启的，需要在配置中开启
@@ -456,7 +456,7 @@ Redis官方提供了两种不同的持久化方法来将数据存储到硬盘里
 - a.修改 appendonly yes 开启持久化
 - b.修改 appendfilename "appendonly.aof" 指定生成文件名称
 ```
-![image-20220508215747009](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082157058.png)
+![image-20220508215747009](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082157058.png)
 
 #### 3.日志追加频率
 ```markdown
@@ -479,7 +479,7 @@ Redis官方提供了两种不同的持久化方法来将数据存储到硬盘里
 # 1.修改日志同步频率
 - 修改appendfsync everysec|always|no 指定
 ```
-![image-20220508215806203](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082158256.png)
+![image-20220508215806203](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082158256.png)
 
 ---
 ### 9.3 AOF文件的重写
@@ -498,7 +498,7 @@ AOF的方式也同时带来了另一个问题。持久化文件会变的越来�
 - 配置redis.conf中的auto-aof-rewrite-percentage选项 参加下图↓↓↓
 - 如果设置auto-aof-rewrite-percentage值为100和auto-aof-rewrite-min-size 64mb,并且启用的AOF持久化时,那么当AOF文件体积大于64M,并且AOF文件的体积比上一次重写之后体积大了至少一倍(100%)时,会自动触发,如果重写过于频繁,用户可以考虑将auto-aof-rewrite-percentage设置为更大
 ```
-![image-20220508215829371](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082158467.png)
+![image-20220508215829371](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082158467.png)
 
 #### 4\. 重写原理
  **注意：重写aof文件的操作，并没有读取旧的aof文件，而是将整个内存中的数据库内容用命令的方式重写了一个新的aof文件,替换原有的文件这点和快照有点类似。**
@@ -510,7 +510,7 @@ AOF的方式也同时带来了另一个问题。持久化文件会变的越来�
 - 3. 当子进程把快照内容写入已命令方式写到临时文件中后，子进程发信号通知父进程。然后父进程把缓存的写命令也写入到临时文件。
 - 4. 现在父进程可以使用临时文件替换老的aof文件，并重命名，后面收到的写命令也开始往新的aof文件中追加。
 ```
-![image-20220508215849670](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082158721.png)
+![image-20220508215849670](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082158721.png)
 
 ---
 ### 9.4 持久化总结
@@ -541,7 +541,7 @@ AOF的方式也同时带来了另一个问题。持久化文件会变的越来�
    jedis.close();
  }
 ```
-![image-20220508215910211](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082159258.png)
+![image-20220508215910211](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082159258.png)
 
 ### 10.2 操作key相关API
 ```java
@@ -588,7 +588,7 @@ private Jedis jedis;
         System.out.println(maps);
     }
 ```
-![image-20220508215933037](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082159088.png)
+![image-20220508215933037](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082159088.png)
 
 ### 10.3操作String相关API
 ```java
@@ -612,7 +612,7 @@ private Jedis jedis;
         //............
     }
 ```
-![image-20220508215951638](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082159684.png)
+![image-20220508215951638](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082159684.png)
 
 ### 10.4操作List相关API
 ```java
@@ -643,7 +643,7 @@ private Jedis jedis;
     }
 
 ```
-![image-20220508220003043](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082200086.png)
+![image-20220508220003043](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082200086.png)
 
 ### 10.5操作Set的相关API
 ```java
@@ -663,7 +663,7 @@ public void testSet(){
   //...
 }
 ```
-![image-20220508220013540](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082200578.png)
+![image-20220508220013540](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082200578.png)
 
 ### 10.6 操作ZSet相关API
 ```java
@@ -687,7 +687,7 @@ public void testZset(){
 
 }
 ```
-![image-20220508220027055](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082200102.png)
+![image-20220508220027055](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082200102.png)
 
 ### 10.7 操作Hash相关API
 ```java
@@ -707,7 +707,7 @@ public void testHash(){
   //....
 }
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082200815.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082200815.png)
 
 ---
 ## 11.SpringBoot整合Redis
@@ -857,7 +857,7 @@ System.out.println(user1);
 **无法解决: 1.master节点出现故障的自动故障转移**
 
 ### 12.2 主从复制架构图
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082201727.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082201727.png)
 
 ### 12.3 搭建主从复制
 ```markdown
@@ -876,7 +876,7 @@ System.out.println(user1);
     bind 0.0.0.0
     slaveof masterip masterport
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082201111.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082201111.png)
 
 从结点不负责数据的写，只负责数据的同步和读的操作
 
@@ -895,7 +895,7 @@ Sentinel（哨兵）是Redis 的高可用性解决方案：由一个或多个Sen
 **无法解决: 1.单节点并发压力问题   2.单节点内存和磁盘物理上限**
 
 ### 13.2 哨兵架构原理
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082201390.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082201390.png)
 
 **但是可能出现这个问题，因为网络延迟的原因，哨兵认为我死了，但是我没有死，可是哨兵已经推选出了一个新的头，这样出现了脑裂现象，所以为了避免这种情况，我们有一组哨兵，只有半数以上认为他死了才算死了**
 
@@ -926,14 +926,14 @@ spring.redis.sentinel.nodes=192.168.202.206:26379
 * **注意:如果连接过程中出现如下错误:RedisConnectionException: DENIED Redis is running in protected mode because protected mode is enabled, no bind address was specified, no authentication password is requested to clients. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 1) Just disable protected mode sending the command 'CONFIG SET protected-mode no' from the loopback interface by connecting to Redis from the same host the server is running, however MAKE SURE Redis is not publicly accessible from internet if you do so. Use CONFIG REWRITE to make this change permanent. 2)**
 * **解决方案:在哨兵的配置文件中加入bind 0.0.0.0 开启远程连接权限**
 
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082201808.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082201808.png)
 
 ## 14\. Redis集群
 ### 14.1 集群
 Redis在3.0后开始支持Cluster(模式)模式,目前redis的集群支持节点的自动发现,支持slave-master选举和容错,支持在线分片(sharding shard )等特性。reshard
 
 ### 14.2 集群架构图
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082201793.jpg)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082201793.jpg)
 
 ### 14.3 集群细节
 ```markdown
@@ -942,7 +942,7 @@ Redis在3.0后开始支持Cluster(模式)模式,目前redis的集群支持节点
 - 客户端与redis节点直连,不需要中间proxy层.客户端不需要连接集群所有节点,连接集群中任何一个可用节点即可
 - redis-cluster把所有的物理节点映射到[0-16383]slot上,cluster 负责维护node<->slot<->value
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082201291.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082201291.png)
 
 ### 14.4 集群搭建
 判断一个是集群中的节点是否可用,是集群中的所用主节点选举过程,如果半数以上的节点认为当前节点挂掉,那么当前节点就是挂掉了,所以搭建redis集群时建议节点数最好为奇数，**搭建集群至少需要三个主节点,三个从节点,至少需要6个节点**。
@@ -953,14 +953,14 @@ Redis在3.0后开始支持Cluster(模式)模式,目前redis的集群支持节点
 - gem install redis-xxx.gem
 
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082201608.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082201608.png)
 
 ![image](images/926196c4-9852-4311-9395-e0cd6a6fac23.png)
 
 ```markdown
 # 2.在一台机器创建7个目录
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082201112.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082201112.png)
 
 ```markdown
 # 3.每个目录复制一份配置文件
@@ -972,7 +972,7 @@ Redis在3.0后开始支持Cluster(模式)模式,目前redis的集群支持节点
 [root@localhost ~]# cp redis-4.0.10/redis.conf 7005/
 [root@localhost ~]# cp redis-4.0.10/redis.conf 7006/
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082201179.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082201179.png)
 
 ```markdown
 # 4.修改不同目录配置文件
@@ -992,13 +992,13 @@ Redis在3.0后开始支持Cluster(模式)模式,目前redis的集群支持节点
 - [root@localhost bin]# ./redis-server  /root/7005/redis.conf
 - [root@localhost bin]# ./redis-server  /root/7006/redis.conf
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082201726.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082201726.png)
 
 ```markdown
 # 6.查看进程
 - [root@localhost bin]# ps aux|grep redis
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082201375.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082201375.png)
 
 #### 1.创建集群
 ```markdown
@@ -1008,12 +1008,12 @@ Redis在3.0后开始支持Cluster(模式)模式,目前redis的集群支持节点
 # 2.创建集群
 - ./redis-trib.rb create --replicas 1 192.168.202.205:7000 192.168.202.205:7001 192.168.202.205:7002 192.168.202.205:7003 192.168.202.205:7004 192.168.202.205:7005   前面三个是master结点，后面三个是副本
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082202657.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082202657.png)
 
 ```markdown
 # 3.集群创建成功出现如下提示
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082202330.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082202330.png)
 
 #### 2.查看集群状态
 ```markdown
@@ -1032,7 +1032,7 @@ Redis在3.0后开始支持Cluster(模式)模式,目前redis的集群支持节点
     从节点可以删除
     从节点不负责数据的写,只负责数据的同步
 ```
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082202439.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082202439.png)
 
 
 
@@ -1071,7 +1071,7 @@ Redis在3.0后开始支持Cluster(模式)模式,目前redis的集群支持节点
 ### 15.1 管理机制
 **redis的session管理是利用spring提供的session管理解决方案,将一个应用session交给Redis存储,整个应用中所有session的请求都会去redis中获取对应的session数据。**
 
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082202843.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082202843.png)
 
 * 所有的session都放到了redis中，不在应用服务器上存放了
 
@@ -1094,5 +1094,5 @@ public class RedisSessionManager {
 #### 3.打包测试即可
 ---
 ## 可视化工具注意
-![image](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082202459.png)
+![image](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082202459.png)
 

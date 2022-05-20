@@ -4,7 +4,7 @@
 
 文件在程序中是以流的形式来操作的
 
-![image-20220508222116850](https://gitee.com/Aaustin/harehouse/raw/master/img/202205082221884.png)
+![image-20220508222116850](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205082221884.png)
 
 - 从源文件到内存为输入流
 - 从内存到文件为输出流
@@ -60,7 +60,7 @@ public class FileCreate {
 
 ```
 
-![image-20220509090322475](https://gitee.com/Aaustin/harehouse/raw/master/img/202205090903574.png)
+![image-20220509090322475](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205090903574.png)
 
 ## 获取文件的相关信息
 
@@ -149,7 +149,7 @@ public void m2(){
 - 输入input：读取外部数据到内存中
 - 输出output：将内存中的数据输出到磁盘中
 
-![image-20220509093438999](https://gitee.com/Aaustin/harehouse/raw/master/img/202205090934072.png)
+![image-20220509093438999](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205090934072.png)
 
 ### **流的分类**
 
@@ -169,11 +169,11 @@ public void m2(){
 
   这四个类都是抽象类，java io流共设计40多个子类都是上面4个派生出来的
 
-  ![image-20220509094840083](https://gitee.com/Aaustin/harehouse/raw/master/img/202205090948124.png)
+  ![image-20220509094840083](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205090948124.png)
 
 ​		由这四个类派生出来的子类名都是以父类名作为子类的后缀
 
-![image-20220509095110132](https://gitee.com/Aaustin/harehouse/raw/master/img/202205090951161.png)
+![image-20220509095110132](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205090951161.png)
 
 ## IO流常用的类
 
@@ -189,7 +189,7 @@ public void m2(){
 
 #### **FileInputStream**
 
-![image-20220509100055015](https://gitee.com/Aaustin/harehouse/raw/master/img/202205091000088.png)
+![image-20220509100055015](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205091000088.png)
 
 - read() 读取单个字节
 
@@ -260,7 +260,7 @@ public void m2(){
 
 #### FileOutputStream
 
-![image-20220509104556857](https://gitee.com/Aaustin/harehouse/raw/master/img/202205091045935.png)
+![image-20220509104556857](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205091045935.png)
 
 - 在一个文件中写入hynzdc
 
@@ -460,7 +460,7 @@ public void m2(){
 
 节点流可以从一个特定的数据源读取数据
 
-![image-20220509161723017](https://gitee.com/Aaustin/harehouse/raw/master/img/202205091617148.png)
+![image-20220509161723017](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205091617148.png)
 
 这种灵活性不够好，效率不够强大，所以提出了处理流
 
@@ -470,15 +470,15 @@ public void m2(){
 
 BufferedReader 里面封装了Reader 故只要是Reader的子类，BufferedReader都可以进行操作
 
-![image-20220509162411833](https://gitee.com/Aaustin/harehouse/raw/master/img/202205091624888.png)
+![image-20220509162411833](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205091624888.png)
 
 用理buffereWriter里面也有Writer
 
-![image-20220509162607936](https://gitee.com/Aaustin/harehouse/raw/master/img/202205091626991.png)
+![image-20220509162607936](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205091626991.png)
 
 所以只要是Writer的子类都可以被BufferedWriter接管
 
-![](https://gitee.com/Aaustin/harehouse/raw/master/img/202205091631810.png)
+![](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205091631810.png)
 
 ### 节点流和处理流的区别和联系
 
@@ -599,17 +599,17 @@ public class BufferedCopy {
    - Serializable. 这是一个标记接口，没有方法
    - Extrnalizable  需要实现方法
 
-![image-20220510090515659](https://gitee.com/Aaustin/harehouse/raw/master/img/202205100905822.png)
+![image-20220510090515659](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205100905822.png)
 
 ### ObjectInputStream
 
 **处理流**
 
-![image-20220510091140826](https://gitee.com/Aaustin/harehouse/raw/master/img/202205100911896.png)
+![image-20220510091140826](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205100911896.png)
 
 ### ObjectOutputStream
 
-![image-20220510091311207](https://gitee.com/Aaustin/harehouse/raw/master/img/202205100913283.png)
+![image-20220510091311207](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205100913283.png)
 
 ### 应用案例
 
@@ -644,7 +644,7 @@ class Dog implements Serializable {
 
 ```
 
-![image-20220510093159736](https://gitee.com/Aaustin/harehouse/raw/master/img/202205100931791.png)
+![image-20220510093159736](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205100931791.png)
 
 2. 使用ObjectInputStream读取data.dat文件，恢复数据
 
@@ -702,21 +702,21 @@ class Dog implements Serializable {
 
 下面说一个例子，在我们用BufferedReader读取文本文件时如果文本文件是utf-8那么可以读取正常，但是如果以其他格式编码的文件就会出现如下情况
 
-![image-20220510105828963](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101058091.png)
+![image-20220510105828963](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205101058091.png)
 
-![image-20220510105836840](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101058914.png)
+![image-20220510105836840](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205101058914.png)
 
 所以我们可以用字节流读取文件，再指定编码格式，再转换成字符流
 
-![image-20220510110020680](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101100751.png)
+![image-20220510110020680](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205101100751.png)
 
 ### InputStreamReader
 
-![image-20220510110421913](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101104983.png)
+![image-20220510110421913](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205101104983.png)
 
 ### OutputStreamWriter
 
-![image-20220510111220695](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101112747.png)
+![image-20220510111220695](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205101112747.png)
 
 - InputStreamReader：Reader 的子类，可以将InputStream（字节流）包装成 Reader字符流
 - OutputStreamWriter: Writer 的子类 ，可以讲outputStream 包装成 Writer 字符流
@@ -778,7 +778,7 @@ public class OutputStreamWriter_ {
 
 ### PrintStream
 
-![image-20220510154744024](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101547158.png)
+![image-20220510154744024](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205101547158.png)
 
 ```java
 //演示字节打印流
@@ -802,7 +802,7 @@ public class PrintStream_ {
 
 ### PrintWriter
 
-![image-20220510154920489](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101549585.png)
+![image-20220510154920489](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205101549585.png)
 
 ```java
 public class PrintWriter_ {
@@ -825,6 +825,8 @@ Properties是一个专门读取配置文件的集合类
 
 键=值
 
+![image-20220520160440019](https://pic-es.oss-cn-shanghai.aliyuncs.com/study-pic/202205201604060.png)
+
 ### Properties常用的方法
 
 - load() 加载配置文件的键值对到Properties对象
@@ -835,7 +837,7 @@ Properties是一个专门读取配置文件的集合类
 
 ### 看一个需求
 
-![image-20220510161256348](https://gitee.com/Aaustin/harehouse/raw/master/img/202205101612418.png)
+![image-20220510161256348](https://pic-es.oss-cn-shanghai.aliyuncs.com/harehouse-master/img/202205101612418.png)
 
 **用传统的方法解决**
 

@@ -1,0 +1,30 @@
+version: "3.0"
+services:
+  tomcat: 
+    image: tomcat:latest  #代表使用的是哪个镜像,它类似于docker run最后指向的镜像名称
+    ports: #代表宿主机和容器中端口的映射 -p
+      - 8080:8080
+  tomcat01:
+    container_name: tomcat01
+    image: tomcat:latest
+    ports:
+      - 8081:8080
+  redis:
+    image: redis:5.0.14
+    container_name: redis
+    ports:
+      - 6378:6379
+  mysql:
+    container_name: mysql
+    image: mysql:8.0.29-oracle 
+    ports:
+      - 3306:3306
+    environment:  #代表给当前容器指定参数-e
+      #- MYSQL_ROOT_PASSWORD: root
+      - "MYSQL_ROOT_PASSWORD=root"
+    volumes: #给当前容器和宿主机指定数据卷 docker run -v   
+      # - /root/mysqldata1:/var/lib/mysql
+      - mysqlData:/var/lib/mysql
+
+volumes:
+  mysqlData:  #声明数据卷别名
